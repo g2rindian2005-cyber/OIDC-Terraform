@@ -18,7 +18,7 @@ jobs:
       - name: AWS OIDC Authentication
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: arn:aws:iam::812949398151:role/OIDC
+          role-to-assume: arn:aws:iam::812949398151:role/jawan-1211
           role-session-name: GitHubActions-Terraform
           aws-region: us-east-1
 
