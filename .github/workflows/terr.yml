@@ -1,3 +1,4 @@
+
 name: Terraform
 
 on:
@@ -18,9 +19,12 @@ jobs:
       - name: AWS OIDC Authentication
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: arn:aws:iam::812949398151:role/jawan-1211
+          role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
           role-session-name: GitHubActions-Terraform
-          aws-region: us-east-1
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: Verify AWS Authentication
+        run: aws sts get-caller-identity
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
